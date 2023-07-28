@@ -434,6 +434,12 @@ list(APPEND SOURCE_FILES
         displayapp/screens/WatchFaceTerminal.cpp
         displayapp/screens/WatchFacePineTimeStyle.cpp
         displayapp/screens/WatchFaceCasioStyleG7710.cpp
+        displayapp/screens/watchface/watchfaces/WatchFaceCustom.cpp
+
+        displayapp/screens/watchface/uicomponents/UiComponent.cpp
+
+        displayapp/screens/watchface/uicomponents/built-in_functions/BuiltInFunctionUiComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_functions/TextUiComponent.cpp
 
         ##
 
