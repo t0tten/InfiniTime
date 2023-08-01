@@ -117,13 +117,6 @@ std::unique_ptr<Screen> Clock::WatchFaceTerminalScreen() {
 
 std::unique_ptr<Screen> Clock::WatchFaceCustomScreen() {
   return std::make_unique<Screens::WatchFace::WatchFaceCustom>();
-  /*return std::make_unique<Screens::WatchFaceTerminal>(dateTimeController,
-                                                      batteryController,
-                                                      bleController,
-                                                      notificationManager,
-                                                      settingsController,
-                                                      heartRateController,
-                                                      motionController);*/
 }
 
 std::unique_ptr<Screen> Clock::WatchFaceInfineatScreen() {

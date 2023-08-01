@@ -7,3 +7,6 @@ UiComponent::UiComponent(UiType::TYPE type) {
     this->type = type;
 }
 UiComponent::~UiComponent() {}
+UiType::TYPE UiComponent::getType() {
+    return this->type;
+}

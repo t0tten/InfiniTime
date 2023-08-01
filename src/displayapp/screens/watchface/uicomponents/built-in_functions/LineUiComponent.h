@@ -1,7 +1,6 @@
 #pragma once
 
 #include "displayapp/screens/watchface/uicomponents/built-in_functions/BuiltInFunctionUiComponent.h"
-#include "displayapp/screens/watchface/uicomponents/ui_components_types/StringUiComponentType.h"
 #include <string>
 #include <vector>
 
@@ -9,9 +8,9 @@ namespace Pinetime {
   namespace Applications {
     namespace Screens {
       namespace WatchFace {
-          class TextUiComponent: public BuiltInFunctionUiComponent {
+          class LineUiComponent: public BuiltInFunctionUiComponent {
             public:
-              virtual ~TextUiComponent();
+              virtual ~LineUiComponent();
 
               static UiComponent* parseValues(std::vector<std::string> values);
               virtual void executeSelf(bool shouldDraw, std::vector<UiComponent*> components);
@@ -19,12 +18,12 @@ namespace Pinetime {
 
             private:
               /* VARIABLES */
-              StringUiComponentType* text;
-              IntegerUiComponentType* size;
+              IntegerUiComponentType* xx;
+              IntegerUiComponentType* yy;
+              IntegerUiComponentType* thickness;
 
               /* FUNCTIONS */
-              TextUiComponent(UiType::TYPE type, IntegerUiComponentType* x, IntegerUiComponentType* y, IntegerUiComponentType* size, StringUiComponentType* text);
-              void setSize(IntegerUiComponentType* size);
+              LineUiComponent(UiType::TYPE type, IntegerUiComponentType* x, IntegerUiComponentType* y, IntegerUiComponentType* xx, IntegerUiComponentType* yy, IntegerUiComponentType* thickness);
           };
       }
     }

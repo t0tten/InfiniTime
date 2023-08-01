@@ -434,12 +434,26 @@ list(APPEND SOURCE_FILES
         displayapp/screens/WatchFaceTerminal.cpp
         displayapp/screens/WatchFacePineTimeStyle.cpp
         displayapp/screens/WatchFaceCasioStyleG7710.cpp
+
+        ## WatchFace Parser
         displayapp/screens/watchface/watchfaces/WatchFaceCustom.cpp
 
         displayapp/screens/watchface/uicomponents/UiComponent.cpp
-
+        displayapp/screens/watchface/uicomponents/built-in_functions/ColorComponent.cpp
         displayapp/screens/watchface/uicomponents/built-in_functions/BuiltInFunctionUiComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_functions/CircleUiComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_functions/ColorUiComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_functions/LineUiComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_functions/RectangleUiComponent.cpp
         displayapp/screens/watchface/uicomponents/built-in_functions/TextUiComponent.cpp
+        displayapp/screens/watchface/uicomponents/ui_components_types/UiComponentType.cpp
+        displayapp/screens/watchface/uicomponents/ui_components_types/StringUiComponentType.cpp
+        displayapp/screens/watchface/uicomponents/ui_components_types/IntegerUiComponentType.cpp
+
+        displayapp/screens/watchface/uicomponents/arithmetics/ArithmeticUiComponent.cpp
+        displayapp/screens/watchface/uicomponents/arithmetics/IfArithmeticUiComponent.cpp
+
+        #displayapp/screens/watchface/matchers/TypeMatcher.cpp
 
         ##
 
