@@ -15,9 +15,9 @@ namespace Pinetime {
           class BuiltInFunctionUiComponent: public UiComponent {
             public:
               virtual ~BuiltInFunctionUiComponent();
-              virtual bool execute(bool shouldDraw, ColorComponent* color, std::vector<UiComponent*> components);
-              virtual void executeSelf(bool shouldDraw, std::vector<UiComponent*> components) = 0;
-              virtual void update(bool shouldUpdate) = 0;
+              virtual bool execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components);
+              virtual void executeSelf(const std::vector<UiComponent*>& components) = 0;
+              virtual void update(const bool& shouldUpdate) = 0;
 
             protected:
               /* VARIABLES */
@@ -26,7 +26,7 @@ namespace Pinetime {
               IntegerUiComponentType* y;
 
               /* FUNCTIONS */
-              BuiltInFunctionUiComponent(UiType::TYPE type, IntegerUiComponentType* x, IntegerUiComponentType* y);
+              BuiltInFunctionUiComponent(const UiType::TYPE& type, IntegerUiComponentType* x, IntegerUiComponentType* y);
               void setCoords(IntegerUiComponentType* x, IntegerUiComponentType* y);
           };
       }

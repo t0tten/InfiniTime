@@ -2,14 +2,21 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-/* PRIVATES */
-IfArithmeticUiComponent::IfArithmeticUiComponent(UiType::TYPE type, std::string op, UiComponentType* component1, UiComponentType* component2): ArithmeticUiComponent(type) {
-    this->op = op;
-    this->component1 = component1;
-    this->component2 = component2;
+IfArithmeticUiComponent::IfArithmeticUiComponent(): ArithmeticUiComponent(UiType::IF) {
+    this->component1 = nullptr;
+    this->component2 = nullptr;
+    this->op = "=";
 }
 
-bool IfArithmeticUiComponent::continueWithNextIfStatement(bool shouldDraw, ColorComponent* color, std::vector<UiComponent*> components) {
+IfArithmeticUiComponent::IfArithmeticUiComponent(std::string& values): ArithmeticUiComponent(UiType::IF) {
+    TypeTranslator* tt = new TypeTranslator();
+    this->component1 = tt->translateTypeToComponent(UiType::STRING, values);
+    this->component2 = tt->translateTypeToComponent(UiType::STRING, values);
+    delete tt;
+    this->op = "=";
+}
+
+bool IfArithmeticUiComponent::continueWithNextIfStatement(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
     for (unsigned int i = 0; i < this->ifComponents.size(); i++) {
         if(this->ifComponents[i]->execute(shouldDraw, color, components)) {
             return true;
@@ -18,7 +25,6 @@ bool IfArithmeticUiComponent::continueWithNextIfStatement(bool shouldDraw, Color
     return false;
 }
 
-/* PUBLICS */
 IfArithmeticUiComponent::~IfArithmeticUiComponent() {
     if (this->component1 != NULL) {
         delete this->component1;
@@ -33,7 +39,7 @@ IfArithmeticUiComponent::~IfArithmeticUiComponent() {
     }
 }
 
-bool IfArithmeticUiComponent::execute(bool shouldDraw, ColorComponent* color, std::vector<UiComponent*> components) {
+bool IfArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
     if (shouldDraw) {
         components.size();
     }
@@ -83,27 +89,4 @@ bool IfArithmeticUiComponent::execute(bool shouldDraw, ColorComponent* color, st
 
 void IfArithmeticUiComponent::addIfComponent(IfArithmeticUiComponent* ifComponent) {
     this->ifComponents.push_back(ifComponent);
-}
-
-/* STATICS */
-IfArithmeticUiComponent* IfArithmeticUiComponent::parseValues(std::string values) {
-    values = "";
-    UiComponentType* com1 = IfArithmeticUiComponent::translateToVariable(UiType::STRING, "test");
-    UiComponentType* com2 = IfArithmeticUiComponent::translateToVariable(UiType::STRING, "test");
-    return new IfArithmeticUiComponent(UiType::IF, "=", com1, com2);
-}
-
-IfArithmeticUiComponent* IfArithmeticUiComponent::emptyValues() {
-    return new IfArithmeticUiComponent(UiType::IF, "", nullptr, nullptr);
-}
-UiComponentType* IfArithmeticUiComponent::translateToVariable(UiType::TYPE type, std::string value) {
-    switch(type) {
-        case UiType::STRING:
-            return StringUiComponentType::validate(value);
-        case UiType::INTEGER:
-            return IntegerUiComponentType::validate(value);
-        default:
-            return nullptr;
-    }
-    return nullptr;
 }

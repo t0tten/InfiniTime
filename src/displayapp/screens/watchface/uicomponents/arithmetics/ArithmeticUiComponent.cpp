@@ -3,9 +3,10 @@
 using namespace Pinetime::Applications::Screens::WatchFace;
 
 /* PROTECTED */
-ArithmeticUiComponent::ArithmeticUiComponent(UiType::TYPE type): UiComponent(type) { }
+ArithmeticUiComponent::ArithmeticUiComponent(const UiType::TYPE& type): UiComponent(type) { }
 
 /* PUBLIC */
+ArithmeticUiComponent::ArithmeticUiComponent(): UiComponent(UiType::NOOP) { }
 ArithmeticUiComponent::~ArithmeticUiComponent() {
     for (unsigned int i = 0; i < this->codeBlock.size(); i++) {
         delete codeBlock[i];
@@ -16,7 +17,7 @@ void ArithmeticUiComponent::addCodeBlockComponent(UiComponent* component) {
     this->codeBlock.push_back(component);
 }
 
-bool ArithmeticUiComponent::execute(bool shouldDraw, ColorComponent* color, std::vector<UiComponent*> components) {
+bool ArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
     ColorComponent* tmpColor = color;
     for (unsigned int i = 0; i < this->codeBlock.size(); i++) {
         switch(this->codeBlock[i]->getType()) {
@@ -34,18 +35,14 @@ bool ArithmeticUiComponent::execute(bool shouldDraw, ColorComponent* color, std:
     return true;
 }
 
-void ArithmeticUiComponent::update(bool shouldUpdate) {
+void ArithmeticUiComponent::update(const bool& shouldUpdate) {
     for (unsigned int i = 0; i < this->codeBlock.size(); i++) {
         this->codeBlock[i]->update(shouldUpdate);
     }
 }
 
-void ArithmeticUiComponent::executeCodeBlock(bool shouldDraw, ColorComponent* color, std::vector<UiComponent*> components) {
+void ArithmeticUiComponent::executeCodeBlock(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
     for (unsigned int i = 0; i < this->codeBlock.size(); i++) {
         this->codeBlock[i]->execute(shouldDraw, color, components);
     }
-}
-
-ArithmeticUiComponent* ArithmeticUiComponent::empty() {
-    return new ArithmeticUiComponent(UiType::NOOP);
 }

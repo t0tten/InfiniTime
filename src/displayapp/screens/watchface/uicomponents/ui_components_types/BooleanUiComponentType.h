@@ -6,11 +6,10 @@ namespace Pinetime {
   namespace Applications {
     namespace Screens {
       namespace WatchFace {
-          class IntegerUiComponentType: public UiComponentType {
+          class BooleanUiComponentType: public UiComponentType {
             public:
-              IntegerUiComponentType(std::string& data);
-              virtual ~IntegerUiComponentType();
-              
+              virtual ~BooleanUiComponentType();
+              BooleanUiComponentType(std::string& data);
               virtual std::string getValue() const;
           };
       }

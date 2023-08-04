@@ -10,7 +10,7 @@ namespace Pinetime {
           class TypeMatcher {
             public:
               virtual ~TypeMatcher();
-              static bool validateInput(std::string value, std::string regularExpression);
+              static bool validateInput(const std::string& value, std::string& regularExpression);
 
             private:
               TypeMatcher();

@@ -8,14 +8,10 @@ namespace Pinetime {
       namespace WatchFace {
           class StringUiComponentType: public UiComponentType {
             public:
+              StringUiComponentType(std::string& data);
               virtual ~StringUiComponentType();
-              static StringUiComponentType* validate(std::string data);
-              virtual std::string getValue();
-
-              static std::string getRegularExpression();
-            private:
-              StringUiComponentType(UiType::TYPE type, std::string data);
-              static std::vector<std::string> getRegularExpressionVector();
+              
+              virtual std::string getValue() const;
           };
       }
     }

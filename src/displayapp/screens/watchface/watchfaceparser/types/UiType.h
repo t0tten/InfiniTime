@@ -26,19 +26,18 @@ namespace Pinetime {
                 CLOCK_SEC,      // 14
                 STRING,         // 15
                 INTEGER,        // 16
-                BOOLEAN_TRUE,   // 17
-                BOOLEAN_FALSE,  // 18
-                HEART,          // 19
-                BT,             // 20
-                DATE,           // 21
-                DATE_FULL,      // 22
-                DATE_FULL_YEAR, // 23
-                DATE_YEAR,      // 24
-                DATE_MONTH,     // 25
-                DATE_DAY,       // 26
-                STEPS,          // 27
-                BATT,           // 28
-                INDEX           // 29
+                BOOLEAN,        // 17
+                HEART,          // 18
+                BT,             // 19
+                DATE,           // 20
+                DATE_FULL,      // 21
+                DATE_FULL_YEAR, // 22
+                DATE_YEAR,      // 23
+                DATE_MONTH,     // 24
+                DATE_DAY,       // 25
+                STEPS,          // 26
+                BATT,           // 27
+                INDEX           // 28
               } TYPE;
           };
       }

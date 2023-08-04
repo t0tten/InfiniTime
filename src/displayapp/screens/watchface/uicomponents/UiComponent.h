@@ -13,12 +13,12 @@ namespace Pinetime {
             public:
               virtual ~UiComponent();
 
-              virtual bool execute(bool shouldDraw, ColorComponent* color, std::vector<UiComponent*> components) = 0;
-              virtual void update(bool shouldUpdate) = 0;
-              UiType::TYPE getType();
+              virtual bool execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) = 0;
+              virtual void update(const bool& shouldUpdate) = 0;
+              UiType::TYPE getType() const;
 
             protected:
-              UiComponent(UiType::TYPE type);
+              UiComponent(const UiType::TYPE& type);
 
             private:
               /* VARIBALES */

@@ -446,14 +446,30 @@ list(APPEND SOURCE_FILES
         displayapp/screens/watchface/uicomponents/built-in_functions/LineUiComponent.cpp
         displayapp/screens/watchface/uicomponents/built-in_functions/RectangleUiComponent.cpp
         displayapp/screens/watchface/uicomponents/built-in_functions/TextUiComponent.cpp
+
         displayapp/screens/watchface/uicomponents/ui_components_types/UiComponentType.cpp
+        displayapp/screens/watchface/uicomponents/ui_components_types/BooleanUiComponentType.cpp
         displayapp/screens/watchface/uicomponents/ui_components_types/StringUiComponentType.cpp
         displayapp/screens/watchface/uicomponents/ui_components_types/IntegerUiComponentType.cpp
 
         displayapp/screens/watchface/uicomponents/arithmetics/ArithmeticUiComponent.cpp
         displayapp/screens/watchface/uicomponents/arithmetics/IfArithmeticUiComponent.cpp
+        displayapp/screens/watchface/uicomponents/arithmetics/ForArithmeticUiComponent.cpp
 
-        #displayapp/screens/watchface/matchers/TypeMatcher.cpp
+        displayapp/screens/watchface/uicomponents/built-in_variables/VariableComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_variables/BatteryComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_variables/BluetoothComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_variables/ClockComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_variables/DateComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_variables/HeartComponent.cpp
+        displayapp/screens/watchface/uicomponents/built-in_variables/StepComponent.cpp
+
+        displayapp/screens/watchface/watchfaceparser/matchers/UiRegex.cpp
+        displayapp/screens/watchface/uicomponents/translators/TypeTranslator.cpp
+        
+        displayapp/screens/watchface/uicomponents/helpers/ArrayList.cpp
+
+        #displayapp/screens/watchface/watchfaceparser/matchers/TypeMatcher.cpp
 
         ##
 

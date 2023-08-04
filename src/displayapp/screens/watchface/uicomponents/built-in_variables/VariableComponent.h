@@ -7,18 +7,18 @@ namespace Pinetime {
   namespace Applications {
     namespace Screens {
       namespace WatchFace {
-          class ColorComponent {
+          class VariableComponent {
             public:
-              ColorComponent(std::string& r, std::string& g, std::string& b);
-              virtual ~ColorComponent();
-
-              int getR() const;
-              int getG() const;
-              int getB() const;
+              virtual ~VariableComponent();
+              UiType::TYPE getType() const;
+              virtual std::string getValue() = 0;
+              
+            protected:
+              VariableComponent(const UiType::TYPE& type);
 
             private:
               /* VARIABLES */
-              std::string r, g, b;
+              UiType::TYPE type;
           };
       }
     }

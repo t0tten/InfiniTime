@@ -3,10 +3,10 @@
 using namespace Pinetime::Applications::Screens::WatchFace;
 
 UiComponent::UiComponent() {}
-UiComponent::UiComponent(UiType::TYPE type) {
+UiComponent::UiComponent(const UiType::TYPE& type) {
     this->type = type;
 }
 UiComponent::~UiComponent() {}
-UiType::TYPE UiComponent::getType() {
+UiType::TYPE UiComponent::getType() const {
     return this->type;
 }

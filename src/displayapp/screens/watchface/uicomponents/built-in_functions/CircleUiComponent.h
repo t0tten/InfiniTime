@@ -10,18 +10,15 @@ namespace Pinetime {
       namespace WatchFace {
           class CircleUiComponent: public BuiltInFunctionUiComponent {
             public:
+              CircleUiComponent(std::vector<std::string>& values);
               virtual ~CircleUiComponent();
 
-              static UiComponent* parseValues(std::vector<std::string> values);
-              virtual void executeSelf(bool shouldDraw, std::vector<UiComponent*> components);
-              virtual void update(bool shouldUpdate);
+              virtual void executeSelf(const std::vector<UiComponent*>& components);
+              virtual void update(const bool& shouldUpdate);
 
             private:
               /* VARIABLES */
               IntegerUiComponentType* radius;
-
-              /* FUNCTIONS */
-              CircleUiComponent(UiType::TYPE type, IntegerUiComponentType* x, IntegerUiComponentType* y, IntegerUiComponentType* radius);
           };
       }
     }

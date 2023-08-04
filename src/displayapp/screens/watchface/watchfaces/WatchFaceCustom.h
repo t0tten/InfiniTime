@@ -29,6 +29,7 @@ namespace Pinetime {
         private:
           std::vector<UiComponent*> components;
           ArithmeticUiComponent* root;
+          //UiComponent* component;
 
           lv_task_t* taskRefresh;
         };

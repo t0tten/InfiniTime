@@ -10,23 +10,19 @@ namespace Pinetime {
   namespace Applications {
     namespace Screens {
       namespace WatchFace {
-          class ColorUiComponent: public UiComponent {
-            public:
-              virtual ~ColorUiComponent();
+        class ColorUiComponent: public UiComponent {
+          public:
+            ColorUiComponent(std::vector<std::string>& values);
+            virtual ~ColorUiComponent();
 
-              static UiComponent* parseValues(std::vector<std::string> values);
+            bool execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components);
+            virtual void update(const bool& shouldUpdate);
+            ColorComponent* getColor() const;
 
-              bool execute(bool shouldDraw, ColorComponent* color, std::vector<UiComponent*> components);
-              virtual void update(bool shouldUpdate);
-              ColorComponent* getColor();
-
-            private:
-              /* VARIABLES */
-              ColorComponent* color;
-
-              /* FUNCTIONS */
-              ColorUiComponent(UiType::TYPE type, std::string r, std::string g, std::string b);
-          };
+          private:
+            /* VARIABLES */
+            ColorComponent* color;
+        };
       }
     }
   }

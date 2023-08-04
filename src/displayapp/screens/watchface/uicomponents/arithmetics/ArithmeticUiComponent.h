@@ -11,20 +11,18 @@ namespace Pinetime {
       namespace WatchFace {
           class ArithmeticUiComponent: public UiComponent {
             public:
+              ArithmeticUiComponent();
               virtual ~ArithmeticUiComponent();
 
-              virtual bool execute(bool shouldDraw, ColorComponent* color, std::vector<UiComponent*> components);
-              virtual void update(bool shouldUpdate);
-              void executeCodeBlock(bool shouldDraw, ColorComponent* color, std::vector<UiComponent*> components);
-
+              virtual bool execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components);
+              virtual void update(const bool& shouldUpdate);
+              void executeCodeBlock(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components);
               void addCodeBlockComponent(UiComponent* component);
-              static ArithmeticUiComponent* empty();
 
             protected:
               std::vector<UiComponent*> codeBlock;
 
-              ArithmeticUiComponent(UiType::TYPE type);
-
+              ArithmeticUiComponent(const UiType::TYPE& type);
           };
       }
     }

@@ -11,11 +11,11 @@ namespace Pinetime {
       namespace WatchFace {
           class TextUiComponent: public BuiltInFunctionUiComponent {
             public:
+              TextUiComponent(std::vector<std::string>& values);
               virtual ~TextUiComponent();
 
-              static UiComponent* parseValues(std::vector<std::string> values);
-              virtual void executeSelf(bool shouldDraw, std::vector<UiComponent*> components);
-              virtual void update(bool shouldUpdate);
+              virtual void executeSelf(const std::vector<UiComponent*>& components);
+              virtual void update(const bool& shouldUpdate);
 
             private:
               /* VARIABLES */
@@ -23,7 +23,6 @@ namespace Pinetime {
               IntegerUiComponentType* size;
 
               /* FUNCTIONS */
-              TextUiComponent(UiType::TYPE type, IntegerUiComponentType* x, IntegerUiComponentType* y, IntegerUiComponentType* size, StringUiComponentType* text);
               void setSize(IntegerUiComponentType* size);
           };
       }

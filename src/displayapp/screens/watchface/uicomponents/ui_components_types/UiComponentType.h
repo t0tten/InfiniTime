@@ -3,7 +3,6 @@
 #include "displayapp/screens/watchface/watchfaceparser/types/UiType.h"
 #include <string>
 #include <vector>
-#include <regex>
 
 namespace Pinetime {
   namespace Applications {
@@ -12,16 +11,16 @@ namespace Pinetime {
           class UiComponentType {
             public:
               virtual ~UiComponentType();
-              UiType::TYPE getType();
-              virtual std::string getValue() = 0;
+              UiType::TYPE getType() const;
+              virtual std::string getValue() const = 0;
+              std::string getRegularExpression();
               
             protected:
+              std::vector<std::string> regex;
               std::string data;
-              UiComponentType(UiType::TYPE type, std::string data);
-              UiComponentType* translateToVariable(UiType::TYPE type);
+              UiComponentType(const UiType::TYPE& type, std::string& data);
 
             private:
-              /* VARIABLES */
               UiType::TYPE type;
           };
       }
