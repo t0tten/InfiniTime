@@ -2,15 +2,18 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-ColorUiComponent::ColorUiComponent(std::vector<std::string>& values): UiComponent(UiType::COLOR) {
-    this->color = new ColorComponent(values.at(0), values.at(1), values.at(2));
+ColorUiComponent::ColorUiComponent(ArrayList<std::string>& values): UiComponent(UiType::COLOR) {
+    std::string r = values.get(0);
+    std::string g = values.get(1);
+    std::string b = values.get(2);
+    this->color = new ColorComponent(r, g, b);
 }
 
 ColorUiComponent::~ColorUiComponent() {
     delete this->color;
 }
 
-bool ColorUiComponent::execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
+bool ColorUiComponent::execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components) {
     if (shouldDraw) {
         if (color != nullptr) {
             components.size();

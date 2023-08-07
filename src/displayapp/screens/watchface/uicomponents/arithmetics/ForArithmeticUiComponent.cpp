@@ -16,9 +16,9 @@ ForArithmeticUiComponent::~ForArithmeticUiComponent() { }
  * TODO:
  *  Should save each instance of a code block for each loop?
 */
-bool ForArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
+bool ForArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components) {
     if (shouldDraw) {
-        components.push_back(this);
+        components.append(this);
         if ((this->end - this->start) >= 0) {
             for (int i = this->start; i < this->end; i += increment) {
                 this->index = i;
@@ -30,7 +30,7 @@ bool ForArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* c
                 this->executeCodeBlock(shouldDraw, color, components);
             }
         }
-        components.erase(components.begin() + components.size());
+        delete components.pop();
     }
     return true;
 }

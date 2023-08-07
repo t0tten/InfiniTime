@@ -3,7 +3,6 @@
 #include "displayapp/screens/watchface/uicomponents/UiComponent.h"
 #include "displayapp/screens/watchface/uicomponents/built-in_functions/ColorUiComponent.h"
 #include <string>
-#include <vector>
 
 namespace Pinetime {
   namespace Applications {
@@ -14,13 +13,13 @@ namespace Pinetime {
               ArithmeticUiComponent();
               virtual ~ArithmeticUiComponent();
 
-              virtual bool execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components);
+              virtual bool execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components);
               virtual void update(const bool& shouldUpdate);
-              void executeCodeBlock(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components);
+              void executeCodeBlock(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components);
               void addCodeBlockComponent(UiComponent* component);
 
             protected:
-              std::vector<UiComponent*> codeBlock;
+              ArrayList<UiComponent*> codeBlock;
 
               ArithmeticUiComponent(const UiType::TYPE& type);
           };

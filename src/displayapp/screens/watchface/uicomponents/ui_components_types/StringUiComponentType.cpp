@@ -5,7 +5,7 @@ using namespace Pinetime::Applications::Screens::WatchFace;
 StringUiComponentType::~StringUiComponentType() {}
 
 StringUiComponentType::StringUiComponentType(std::string& data): UiComponentType(UiType::STRING, data) {
-    this->regex.push_back("\"[a-zA-Z0-9\\{\\}]\"");
+    this->regex.append("\"[a-zA-Z0-9\\{\\}]\"");
 }
 
 std::string StringUiComponentType::getValue() const {

@@ -466,8 +466,6 @@ list(APPEND SOURCE_FILES
 
         displayapp/screens/watchface/watchfaceparser/matchers/UiRegex.cpp
         displayapp/screens/watchface/uicomponents/translators/TypeTranslator.cpp
-        
-        displayapp/screens/watchface/uicomponents/helpers/ArrayList.cpp
 
         #displayapp/screens/watchface/watchfaceparser/matchers/TypeMatcher.cpp
 

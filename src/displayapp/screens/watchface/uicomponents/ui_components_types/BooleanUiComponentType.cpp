@@ -3,8 +3,8 @@
 using namespace Pinetime::Applications::Screens::WatchFace;
 
 BooleanUiComponentType::BooleanUiComponentType(std::string& data): UiComponentType(UiType::BOOLEAN, data)  {
-    this->regex.push_back("true");
-    this->regex.push_back("false");
+    this->regex.append("true");
+    this->regex.append("false");
 }
 BooleanUiComponentType::~BooleanUiComponentType() {}
 

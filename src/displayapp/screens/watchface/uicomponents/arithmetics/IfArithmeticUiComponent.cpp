@@ -16,9 +16,9 @@ IfArithmeticUiComponent::IfArithmeticUiComponent(std::string& values): Arithmeti
     this->op = "=";
 }
 
-bool IfArithmeticUiComponent::continueWithNextIfStatement(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
+bool IfArithmeticUiComponent::continueWithNextIfStatement(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components) {
     for (unsigned int i = 0; i < this->ifComponents.size(); i++) {
-        if(this->ifComponents[i]->execute(shouldDraw, color, components)) {
+        if(this->ifComponents.get(i)->execute(shouldDraw, color, components)) {
             return true;
         }
     }
@@ -35,11 +35,11 @@ IfArithmeticUiComponent::~IfArithmeticUiComponent() {
     }
 
     for (unsigned int i = 0; i < ifComponents.size(); i++) {
-        delete ifComponents[i];
+        delete ifComponents.get(i);
     }
 }
 
-bool IfArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
+bool IfArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components) {
     if (shouldDraw) {
         components.size();
     }
@@ -88,5 +88,5 @@ bool IfArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* co
 }
 
 void IfArithmeticUiComponent::addIfComponent(IfArithmeticUiComponent* ifComponent) {
-    this->ifComponents.push_back(ifComponent);
+    this->ifComponents.append(ifComponent);
 }

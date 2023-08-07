@@ -2,7 +2,6 @@
 
 #include "displayapp/screens/watchface/uicomponents/arithmetics/ArithmeticUiComponent.h"
 #include <string>
-#include <vector>
 
 namespace Pinetime {
   namespace Applications {
@@ -13,7 +12,7 @@ namespace Pinetime {
               ForArithmeticUiComponent(std::string& values);
               virtual ~ForArithmeticUiComponent();
 
-              virtual bool execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components);
+              virtual bool execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components);
               int getIndex() const;
               std::string getIndexName() const;
 

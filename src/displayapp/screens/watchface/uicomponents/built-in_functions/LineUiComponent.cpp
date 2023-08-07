@@ -2,13 +2,18 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-LineUiComponent::LineUiComponent(std::vector<std::string>& values): BuiltInFunctionUiComponent(UiType::LINE,
-                                                                    new IntegerUiComponentType(values.at(0)),
-                                                                    new IntegerUiComponentType(values.at(1)))
+LineUiComponent::LineUiComponent(ArrayList<std::string>& values): BuiltInFunctionUiComponent(UiType::LINE)
 {
-    this->xx = new IntegerUiComponentType(values.at(2));
-    this->yy = new IntegerUiComponentType(values.at(3));
-    this->thickness = new IntegerUiComponentType(values.at(4));
+    std::string x = values.get(0);
+    std::string y = values.get(1);
+    std::string xx = values.get(2);
+    std::string yy = values.get(3);
+    std::string thickness = values.get(4);
+    
+    this->init(new IntegerUiComponentType(x), new IntegerUiComponentType(y));
+    this->xx = new IntegerUiComponentType(xx);
+    this->yy = new IntegerUiComponentType(yy);
+    this->thickness = new IntegerUiComponentType(thickness);
 }
 
 LineUiComponent::~LineUiComponent() {
@@ -17,7 +22,7 @@ LineUiComponent::~LineUiComponent() {
     delete this->thickness;
 }
 
-void LineUiComponent::executeSelf(const std::vector<UiComponent*>& components) {
+void LineUiComponent::executeSelf(ArrayList<UiComponent*>& components) {
     for (unsigned int i = 0; i < components.size(); i++) {}
 
     short ix, iy, ixx, iyy, ithickness;

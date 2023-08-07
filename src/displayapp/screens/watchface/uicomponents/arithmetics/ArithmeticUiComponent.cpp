@@ -9,26 +9,26 @@ ArithmeticUiComponent::ArithmeticUiComponent(const UiType::TYPE& type): UiCompon
 ArithmeticUiComponent::ArithmeticUiComponent(): UiComponent(UiType::NOOP) { }
 ArithmeticUiComponent::~ArithmeticUiComponent() {
     for (unsigned int i = 0; i < this->codeBlock.size(); i++) {
-        delete codeBlock[i];
+        delete codeBlock.get(i);
     }
 }
 
 void ArithmeticUiComponent::addCodeBlockComponent(UiComponent* component) {
-    this->codeBlock.push_back(component);
+    this->codeBlock.append(component);
 }
 
-bool ArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
+bool ArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components) {
     ColorComponent* tmpColor = color;
     for (unsigned int i = 0; i < this->codeBlock.size(); i++) {
-        switch(this->codeBlock[i]->getType()) {
+        switch(this->codeBlock.get(i)->getType()) {
         case UiType::COLOR:
             {
-            ColorUiComponent* clr = static_cast<ColorUiComponent*>(this->codeBlock[i]);
+            ColorUiComponent* clr = static_cast<ColorUiComponent*>(this->codeBlock.get(i));
             tmpColor = clr->getColor();
             }
             break;
         default:
-            this->codeBlock[i]->execute(shouldDraw, tmpColor, components);
+            this->codeBlock.get(i)->execute(shouldDraw, tmpColor, components);
             break;
         }
     }
@@ -37,12 +37,12 @@ bool ArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* colo
 
 void ArithmeticUiComponent::update(const bool& shouldUpdate) {
     for (unsigned int i = 0; i < this->codeBlock.size(); i++) {
-        this->codeBlock[i]->update(shouldUpdate);
+        this->codeBlock.get(i)->update(shouldUpdate);
     }
 }
 
-void ArithmeticUiComponent::executeCodeBlock(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
+void ArithmeticUiComponent::executeCodeBlock(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components) {
     for (unsigned int i = 0; i < this->codeBlock.size(); i++) {
-        this->codeBlock[i]->execute(shouldDraw, color, components);
+        this->codeBlock.get(i)->execute(shouldDraw, color, components);
     }
 }

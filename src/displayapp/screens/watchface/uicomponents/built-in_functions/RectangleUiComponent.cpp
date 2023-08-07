@@ -2,12 +2,16 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-RectangleUiComponent::RectangleUiComponent(std::vector<std::string>& values): BuiltInFunctionUiComponent(UiType::RECTANGLE,
-                                                                              new IntegerUiComponentType(values.at(0)),
-                                                                              new IntegerUiComponentType(values.at(1)))
+RectangleUiComponent::RectangleUiComponent(ArrayList<std::string>& values): BuiltInFunctionUiComponent(UiType::RECTANGLE)
 {
-    this->xx = new IntegerUiComponentType(values.at(2));
-    this->yy = new IntegerUiComponentType(values.at(3));
+    std::string x = values.get(0);
+    std::string y = values.get(1);
+    std::string xx = values.get(2);
+    std::string yy = values.get(3);
+
+    this->init(new IntegerUiComponentType(x), new IntegerUiComponentType(y));
+    this->xx = new IntegerUiComponentType(xx);
+    this->yy = new IntegerUiComponentType(yy);
 }
 
 RectangleUiComponent::~RectangleUiComponent() {
@@ -15,7 +19,7 @@ RectangleUiComponent::~RectangleUiComponent() {
     delete this->yy;
 }
 
-void RectangleUiComponent::executeSelf(const std::vector<UiComponent*>& components) {
+void RectangleUiComponent::executeSelf(ArrayList<UiComponent*>& components) {
     for (unsigned int i = 0; i < components.size(); i++) {}
 
     int ixx = std::stoi(this->xx->getValue());

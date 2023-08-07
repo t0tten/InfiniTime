@@ -3,7 +3,6 @@
 #include "displayapp/screens/watchface/uicomponents/built-in_functions/BuiltInFunctionUiComponent.h"
 #include "displayapp/screens/watchface/uicomponents/ui_components_types/StringUiComponentType.h"
 #include <string>
-#include <vector>
 
 namespace Pinetime {
   namespace Applications {
@@ -11,10 +10,10 @@ namespace Pinetime {
       namespace WatchFace {
           class TextUiComponent: public BuiltInFunctionUiComponent {
             public:
-              TextUiComponent(std::vector<std::string>& values);
+              TextUiComponent(ArrayList<std::string>& values);
               virtual ~TextUiComponent();
 
-              virtual void executeSelf(const std::vector<UiComponent*>& components);
+              virtual void executeSelf(ArrayList<UiComponent*>& components);
               virtual void update(const bool& shouldUpdate);
 
             private:

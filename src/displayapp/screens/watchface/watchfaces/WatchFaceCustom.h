@@ -9,10 +9,10 @@
 #include "displayapp/screens/watchface/uicomponents/arithmetics/ArithmeticUiComponent.h"
 #include "displayapp/screens/watchface/uicomponents/arithmetics/IfArithmeticUiComponent.h"
 #include "displayapp/screens/watchface/uicomponents/UiComponent.h"
+#include "displayapp/screens/watchface/uicomponents/helpers/ArrayList.h"
 #include "displayapp/screens/Screen.h"
 #include <lvgl/src/lv_core/lv_obj.h>
 #include <lvgl/lvgl.h>
-#include <vector>
 #include <string>
 
 namespace Pinetime {
@@ -27,9 +27,8 @@ namespace Pinetime {
           void Refresh();
 
         private:
-          std::vector<UiComponent*> components;
+          ArrayList<UiComponent*> components;
           ArithmeticUiComponent* root;
-          //UiComponent* component;
 
           lv_task_t* taskRefresh;
         };

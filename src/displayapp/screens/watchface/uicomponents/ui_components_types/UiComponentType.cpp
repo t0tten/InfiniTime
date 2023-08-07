@@ -16,7 +16,7 @@ UiType::TYPE UiComponentType::getType() const {
 std::string UiComponentType::getRegularExpression() {
     std::string retVal = "";
     for(unsigned short i = 0; i < this->regex.size(); i++) {
-        retVal += this->regex[i];
+        retVal += this->regex.get(i);
         if (i < (this->regex.size() - 1)) {
             retVal += "|";
         }

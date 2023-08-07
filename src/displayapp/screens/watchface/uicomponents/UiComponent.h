@@ -2,7 +2,7 @@
 
 #include "displayapp/screens/watchface/watchfaceparser/types/UiType.h"
 #include "displayapp/screens/watchface/uicomponents/built-in_functions/ColorComponent.h"
-#include <vector>
+#include "displayapp/screens/watchface/uicomponents/helpers/ArrayList.h"
 #include <string>
 
 namespace Pinetime {
@@ -13,7 +13,7 @@ namespace Pinetime {
             public:
               virtual ~UiComponent();
 
-              virtual bool execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) = 0;
+              virtual bool execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components) = 0;
               virtual void update(const bool& shouldUpdate) = 0;
               UiType::TYPE getType() const;
 

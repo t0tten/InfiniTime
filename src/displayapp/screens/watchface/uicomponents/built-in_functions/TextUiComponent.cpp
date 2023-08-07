@@ -2,12 +2,16 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-TextUiComponent::TextUiComponent(std::vector<std::string>& values): BuiltInFunctionUiComponent(UiType::TEXT,
-                                                                    new IntegerUiComponentType(values.at(0)),
-                                                                    new IntegerUiComponentType(values.at(1)))
+TextUiComponent::TextUiComponent(ArrayList<std::string>& values): BuiltInFunctionUiComponent(UiType::TEXT)
 {
-    this->size = new IntegerUiComponentType(values.at(2));
-    this->text = new StringUiComponentType(values.at(3));
+    std::string x = values.get(0);
+    std::string y = values.get(1);
+    std::string size = values.get(2);
+    std::string text = values.get(3);
+
+    this->init(new IntegerUiComponentType(x), new IntegerUiComponentType(y));
+    this->size = new IntegerUiComponentType(size);
+    this->text = new StringUiComponentType(text);
 }
 
 TextUiComponent::~TextUiComponent() {
@@ -22,7 +26,7 @@ void TextUiComponent::setSize(IntegerUiComponentType* size) {
     lv_obj_set_size(this->UIObject, isize, isize);
 }
 
-void TextUiComponent::executeSelf(const std::vector<UiComponent*>& components) {
+void TextUiComponent::executeSelf(ArrayList<UiComponent*>& components) {
     for (unsigned int i = 0; i < components.size(); i++) {}
 
     this->UIObject = lv_label_create(lv_scr_act(), nullptr);

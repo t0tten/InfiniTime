@@ -3,8 +3,8 @@
 using namespace Pinetime::Applications::Screens::WatchFace;
 
 IntegerUiComponentType::IntegerUiComponentType(std::string& data): UiComponentType(UiType::INTEGER, data) {
-    this->regex.push_back("{i}");
-    this->regex.push_back("[0-9]+");
+    this->regex.append("{i}");
+    this->regex.append("[0-9]+");
 }
 IntegerUiComponentType::~IntegerUiComponentType() {}
 

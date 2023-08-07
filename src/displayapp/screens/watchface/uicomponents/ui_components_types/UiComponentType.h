@@ -1,8 +1,8 @@
 #pragma once
 
 #include "displayapp/screens/watchface/watchfaceparser/types/UiType.h"
+#include "displayapp/screens/watchface/uicomponents/helpers/ArrayList.h"
 #include <string>
-#include <vector>
 
 namespace Pinetime {
   namespace Applications {
@@ -16,7 +16,7 @@ namespace Pinetime {
               std::string getRegularExpression();
               
             protected:
-              std::vector<std::string> regex;
+              ArrayList<std::string> regex;
               std::string data;
               UiComponentType(const UiType::TYPE& type, std::string& data);
 

@@ -3,10 +3,15 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-BuiltInFunctionUiComponent::BuiltInFunctionUiComponent(const UiType::TYPE& type, IntegerUiComponentType* x, IntegerUiComponentType* y): UiComponent(type) {
+BuiltInFunctionUiComponent::BuiltInFunctionUiComponent(const UiType::TYPE& type): UiComponent(type) {
+    this->x = nullptr;
+    this->y = nullptr;
+    this->UIObject = nullptr;
+}
+
+void BuiltInFunctionUiComponent::init(IntegerUiComponentType* x, IntegerUiComponentType* y) {
     this->x = x;
     this->y = y;
-    this->UIObject = nullptr;
 }
 
 void BuiltInFunctionUiComponent::setCoords(IntegerUiComponentType* x, IntegerUiComponentType* y) {
@@ -26,7 +31,7 @@ BuiltInFunctionUiComponent::~BuiltInFunctionUiComponent() {
     delete this->y;
 }
 
- bool BuiltInFunctionUiComponent::execute(const bool& shouldDraw, ColorComponent* color, std::vector<UiComponent*>& components) {
+ bool BuiltInFunctionUiComponent::execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components) {
     if (shouldDraw) {
         if (this->UIObject == nullptr) {
             this->executeSelf(components);
