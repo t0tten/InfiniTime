@@ -2,7 +2,7 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-UiComponentType* TypeTranslator::translateTypeToComponent(const UiType::TYPE& type, std::string& value) const {
+UiComponentType* TypeTranslator::translateTypeToComponent(const UiType::TYPE& type, const char*& value) const {
     switch(type) {
         case UiType::STRING:
             return new StringUiComponentType(value);

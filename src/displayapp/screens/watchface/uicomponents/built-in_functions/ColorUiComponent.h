@@ -3,7 +3,6 @@
 #include "displayapp/screens/watchface/watchfaceparser/types/UiType.h"
 #include "displayapp/screens/watchface//uicomponents/UiComponent.h"
 #include "displayapp/screens/watchface//uicomponents/built-in_functions/ColorComponent.h"
-#include <string>
 
 namespace Pinetime {
   namespace Applications {
@@ -11,7 +10,7 @@ namespace Pinetime {
       namespace WatchFace {
         class ColorUiComponent: public UiComponent {
           public:
-            ColorUiComponent(ArrayList<std::string>& values);
+            ColorUiComponent(ArrayList<const char*>& values);
             virtual ~ColorUiComponent();
 
             bool execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components);

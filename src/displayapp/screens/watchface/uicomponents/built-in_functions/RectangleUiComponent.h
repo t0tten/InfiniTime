@@ -1,7 +1,6 @@
 #pragma once
 
 #include "displayapp/screens/watchface/uicomponents/built-in_functions/BuiltInFunctionUiComponent.h"
-#include <string>
 
 namespace Pinetime {
   namespace Applications {
@@ -9,7 +8,7 @@ namespace Pinetime {
       namespace WatchFace {
           class RectangleUiComponent: public BuiltInFunctionUiComponent {
             public:
-              RectangleUiComponent(ArrayList<std::string>& values);
+              RectangleUiComponent(ArrayList<const char*>& values);
               virtual ~RectangleUiComponent();
 
               virtual void executeSelf(ArrayList<UiComponent*>& components);

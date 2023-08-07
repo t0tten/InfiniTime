@@ -2,10 +2,10 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-ColorUiComponent::ColorUiComponent(ArrayList<std::string>& values): UiComponent(UiType::COLOR) {
-    std::string r = values.get(0);
-    std::string g = values.get(1);
-    std::string b = values.get(2);
+ColorUiComponent::ColorUiComponent(ArrayList<const char*>& values): UiComponent(UiType::COLOR) {
+    const char* r = values.get(0);
+    const char* g = values.get(1);
+    const char* b = values.get(2);
     this->color = new ColorComponent(r, g, b);
 }
 

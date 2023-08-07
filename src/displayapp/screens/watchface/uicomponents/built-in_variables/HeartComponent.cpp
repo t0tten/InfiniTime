@@ -4,7 +4,7 @@ using namespace Pinetime::Applications::Screens::WatchFace;
 
 HeartComponent::HeartComponent(const UiType::TYPE& type): VariableComponent(type) {}
 HeartComponent::~HeartComponent() {}
-std::string HeartComponent::getValue() {
-    std::string heartBeat = "72";
+const char* HeartComponent::getValue() {
+    const char* heartBeat = "72";
     return heartBeat;
 }

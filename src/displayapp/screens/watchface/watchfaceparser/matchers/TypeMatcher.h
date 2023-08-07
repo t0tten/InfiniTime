@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include <regex>
 
 namespace Pinetime {
@@ -10,7 +9,7 @@ namespace Pinetime {
           class TypeMatcher {
             public:
               virtual ~TypeMatcher();
-              static bool validateInput(const std::string& value, std::string& regularExpression);
+              static bool validateInput(const char*& value, char*& regularExpression);
 
             private:
               TypeMatcher();

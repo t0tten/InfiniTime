@@ -3,9 +3,9 @@
 #include "displayapp/screens/watchface/uicomponents/UiComponent.h"
 #include "displayapp/screens/watchface/uicomponents/built-in_functions/ColorComponent.h"
 #include "displayapp/screens/watchface/uicomponents/ui_components_types/IntegerUiComponentType.h"
+#include "displayapp/screens/watchface/uicomponents/helpers/CharManipulation.h"
 #include <lvgl/src/lv_core/lv_obj.h>
 #include <lvgl/lvgl.h>
-#include <string>
 
 namespace Pinetime {
   namespace Applications {

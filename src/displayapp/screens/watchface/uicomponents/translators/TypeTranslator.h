@@ -21,7 +21,7 @@ namespace Pinetime {
       namespace WatchFace {
           class TypeTranslator {
             public:
-              UiComponentType* translateTypeToComponent(const UiType::TYPE& type, std::string& value) const;
+              UiComponentType* translateTypeToComponent(const UiType::TYPE& type, const char*& value) const;
               VariableComponent* translateVariableToComponent(const UiType::TYPE& type) const;
           };
       }

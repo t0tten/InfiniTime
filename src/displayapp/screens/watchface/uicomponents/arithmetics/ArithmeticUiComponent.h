@@ -2,7 +2,6 @@
 
 #include "displayapp/screens/watchface/uicomponents/UiComponent.h"
 #include "displayapp/screens/watchface/uicomponents/built-in_functions/ColorUiComponent.h"
-#include <string>
 
 namespace Pinetime {
   namespace Applications {

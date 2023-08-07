@@ -2,7 +2,7 @@
 
 #include "displayapp/screens/watchface/watchfaceparser/types/UiType.h"
 #include "displayapp/screens/watchface/uicomponents/helpers/ArrayList.h"
-#include <string>
+#include "displayapp/screens/watchface/uicomponents/helpers/CharManipulation.h"
 
 namespace Pinetime {
   namespace Applications {
@@ -12,13 +12,13 @@ namespace Pinetime {
             public:
               virtual ~UiComponentType();
               UiType::TYPE getType() const;
-              virtual std::string getValue() const = 0;
-              std::string getRegularExpression();
+              virtual const char* getValue() const = 0;
+              const char* getRegularExpression() const;
               
             protected:
-              ArrayList<std::string> regex;
-              std::string data;
-              UiComponentType(const UiType::TYPE& type, std::string& data);
+              ArrayList<const char*> regex;
+              const char* data;
+              UiComponentType(const UiType::TYPE& type, const char*& data);
 
             private:
               UiType::TYPE type;

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "displayapp/screens/watchface/watchfaceparser/types/UiType.h"
-#include <string>
+#include "displayapp/screens/watchface//uicomponents/helpers/CharManipulation.h"
 
 namespace Pinetime {
   namespace Applications {
@@ -9,7 +9,7 @@ namespace Pinetime {
       namespace WatchFace {
           class ColorComponent {
             public:
-              ColorComponent(std::string& r, std::string& g, std::string& b);
+              ColorComponent(const char*& r, const char*& g, const char*& b);
               virtual ~ColorComponent();
 
               int getR() const;
@@ -18,7 +18,11 @@ namespace Pinetime {
 
             private:
               /* VARIABLES */
-              std::string r, g, b;
+              const char* r;
+              const char* g;
+              const char* b;
+
+              int getValue(const char* val) const;
           };
       }
     }

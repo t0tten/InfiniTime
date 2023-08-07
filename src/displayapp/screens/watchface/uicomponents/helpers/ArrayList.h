@@ -27,11 +27,11 @@ namespace Pinetime {
                 return tmp;
               }
 
-              T get(unsigned int index) {
+              T get(unsigned int index) const {
                 return this->array[index];
               }
 
-              unsigned int size() { return this->length; }
+              unsigned int size() const { return this->length; }
 
             private:
                 T* array;

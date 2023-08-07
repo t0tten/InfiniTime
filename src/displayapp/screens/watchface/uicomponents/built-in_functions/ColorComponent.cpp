@@ -2,7 +2,7 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-ColorComponent::ColorComponent(std::string& r, std::string& g, std::string& b) {
+ColorComponent::ColorComponent(const char*& r, const char*& g, const char*& b) {
     this->r = r;
     this->g = g;
     this->b = b;
@@ -10,6 +10,19 @@ ColorComponent::ColorComponent(std::string& r, std::string& g, std::string& b) {
 
 ColorComponent::~ColorComponent() {}
 
-int ColorComponent::getR() const { return std::stoi(this->r); }
-int ColorComponent::getG() const { return std::stoi(this->g); }
-int ColorComponent::getB() const { return std::stoi(this->b); }
+int ColorComponent::getR() const {
+     return this->getValue(this->r);
+}
+int ColorComponent::getG() const {
+     return this->getValue(this->g);
+}
+int ColorComponent::getB() const { 
+    return this->getValue(this->b);
+}
+
+int ColorComponent::getValue(const char* val) const {
+    CharManipulation* cm = new CharManipulation();
+    int value = cm->findInt(val);
+    delete cm;
+    return value;
+}

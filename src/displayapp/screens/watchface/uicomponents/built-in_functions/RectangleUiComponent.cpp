@@ -2,12 +2,12 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-RectangleUiComponent::RectangleUiComponent(ArrayList<std::string>& values): BuiltInFunctionUiComponent(UiType::RECTANGLE)
+RectangleUiComponent::RectangleUiComponent(ArrayList<const char*>& values): BuiltInFunctionUiComponent(UiType::RECTANGLE)
 {
-    std::string x = values.get(0);
-    std::string y = values.get(1);
-    std::string xx = values.get(2);
-    std::string yy = values.get(3);
+    const char* x = values.get(0);
+    const char* y = values.get(1);
+    const char* xx = values.get(2);
+    const char* yy = values.get(3);
 
     this->init(new IntegerUiComponentType(x), new IntegerUiComponentType(y));
     this->xx = new IntegerUiComponentType(xx);

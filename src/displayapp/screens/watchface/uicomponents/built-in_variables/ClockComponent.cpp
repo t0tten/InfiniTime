@@ -2,13 +2,13 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-ClockComponent::ClockComponent(const UiType::TYPE& type): VariableComponent(type) {}
-ClockComponent::~ClockComponent() {}
-std::string ClockComponent::getValue() {
+ClockComponent::ClockComponent(const UiType::TYPE& type): VariableComponent(type) {
     this->hours = "13";
     this->minutes = "37";
     this->seconds = "00";
-
+}
+ClockComponent::~ClockComponent() {}
+const char* ClockComponent::getValue() {
     switch(this->getType()) {
         case UiType::CLOCK:
             return this->getTime();
@@ -24,8 +24,19 @@ std::string ClockComponent::getValue() {
             return "";
     }
 }
-std::string ClockComponent::getHours() const { return this->hours; }
-std::string ClockComponent::getMinutes() const { return this->minutes; }
-std::string ClockComponent::getSeconds() const { return this->seconds; }
-std::string ClockComponent::getTime() const { return this->getHours() + ":" + this->getMinutes(); }
-std::string ClockComponent::getFullTime() const { return this->getTime() + ":" + this->getSeconds(); }
+const char* ClockComponent::getHours() const { return this->hours; }
+const char* ClockComponent::getMinutes() const { return this->minutes; }
+const char* ClockComponent::getSeconds() const { return this->seconds; }
+const char* ClockComponent::getTime() const {
+    CharManipulation* cm = new CharManipulation();
+    char* retVal = cm->concat(cm->concat(this->getHours(), ":"), this->getMinutes());
+    delete cm;
+    return retVal;
+}
+
+const char* ClockComponent::getFullTime() const { 
+    CharManipulation* cm = new CharManipulation();
+    char* retVal = cm->concat(cm->concat(this->getTime(), ":"), this->getSeconds());
+    delete cm;
+    return retVal;
+}

@@ -4,7 +4,7 @@ using namespace Pinetime::Applications::Screens::WatchFace;
 
 UiComponentType::~UiComponentType() {}
 
-UiComponentType::UiComponentType(const UiType::TYPE& type, std::string& data) {
+UiComponentType::UiComponentType(const UiType::TYPE& type, const char*& data) {
     this->type = type;
     this->data = data;
 }
@@ -13,14 +13,26 @@ UiType::TYPE UiComponentType::getType() const {
     return this->type;
 }
 
-std::string UiComponentType::getRegularExpression() {
-    std::string retVal = "";
+const char* UiComponentType::getRegularExpression() const {
+    // char* retVal = "";
+    // CharManipulation* cm = new CharManipulation();
+    // for(unsigned short i = 0; i < this->regex.size(); i++) {
+    //     retVal = cm->concat(retVal, this->regex.get(i));
+    //     if (i < (this->regex.size() - 1)) {
+    //         retVal = cm->concat(retVal, "|");
+    //     }
+    // }
+    // cm->concat(retVal, ")");
+    // return retVal;
+
+    char* retVal = nullptr;
+    CharManipulation* cm = new CharManipulation();
     for(unsigned short i = 0; i < this->regex.size(); i++) {
-        retVal += this->regex.get(i);
+        retVal = cm->concat(retVal, this->regex.get(i));
         if (i < (this->regex.size() - 1)) {
-            retVal += "|";
+            retVal = cm->concat(retVal, "|");
         }
     }
-
-    return "(" + retVal+ ")";
+    retVal = cm->concat(cm->concat("(", retVal), ")");
+    return retVal;
 }

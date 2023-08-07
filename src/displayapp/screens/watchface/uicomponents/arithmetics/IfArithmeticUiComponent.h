@@ -5,7 +5,7 @@
 #include "displayapp/screens/watchface/uicomponents/ui_components_types/StringUiComponentType.h"
 #include "displayapp/screens/watchface/uicomponents/ui_components_types/IntegerUiComponentType.h"
 #include "displayapp/screens/watchface/uicomponents/translators/TypeTranslator.h"
-#include <string>
+#include "displayapp/screens/watchface/uicomponents/helpers/CharManipulation.h"
 
 namespace Pinetime {
   namespace Applications {
@@ -14,7 +14,7 @@ namespace Pinetime {
           class IfArithmeticUiComponent: public ArithmeticUiComponent {
             public:
               IfArithmeticUiComponent();
-              IfArithmeticUiComponent(std::string& values);
+              IfArithmeticUiComponent(const char*& values);
               virtual ~IfArithmeticUiComponent();
 
               virtual bool execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components);
@@ -22,13 +22,14 @@ namespace Pinetime {
 
             private:
               bool isExperssionTrue;
-              std::string op;
+              const char* op;
               UiComponentType* component1;
               UiComponentType* component2;
               ArrayList<IfArithmeticUiComponent*> ifComponents;
 
               /* FUNCTIONS */
               bool continueWithNextIfStatement(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components);
+              bool opEqualsTo(const char*& firstOp, const char* secondOp) const;
           };
       }
     }

@@ -8,7 +8,7 @@ IfArithmeticUiComponent::IfArithmeticUiComponent(): ArithmeticUiComponent(UiType
     this->op = "=";
 }
 
-IfArithmeticUiComponent::IfArithmeticUiComponent(std::string& values): ArithmeticUiComponent(UiType::IF) {
+IfArithmeticUiComponent::IfArithmeticUiComponent(const char*& values): ArithmeticUiComponent(UiType::IF) {
     TypeTranslator* tt = new TypeTranslator();
     this->component1 = tt->translateTypeToComponent(UiType::STRING, values);
     this->component2 = tt->translateTypeToComponent(UiType::STRING, values);
@@ -26,11 +26,11 @@ bool IfArithmeticUiComponent::continueWithNextIfStatement(const bool& shouldDraw
 }
 
 IfArithmeticUiComponent::~IfArithmeticUiComponent() {
-    if (this->component1 != NULL) {
+    if (this->component1 != nullptr) {
         delete this->component1;
     }
 
-    if (this->component2 != NULL) {
+    if (this->component2 != nullptr) {
         delete this->component2;
     }
 
@@ -45,35 +45,37 @@ bool IfArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* co
     }
 
     this->isExperssionTrue = false;
-    if (this->component1 != NULL && this->component2 != NULL) {
+    if (this->component1 != nullptr && this->component2 != nullptr) {
         int comparer1 = -1;
         int comparer2 = -1;
-        if (this->op != "=" && this->op != "!=") {
-            comparer1 = std::stoi(this->component1->getValue());
-            comparer2 = std::stoi(this->component2->getValue());
+        if (!this->opEqualsTo(this->op, "=") && !this->opEqualsTo(this->op, "!=")) {
+            CharManipulation* cm = new CharManipulation();
+            comparer1 = cm->findInt(this->component1->getValue());
+            comparer2 = cm->findInt(this->component2->getValue());
+            delete cm;
         }
         
-        if (this->op == "<") {
+        if (this->opEqualsTo(this->op, "<")) {
             if (comparer1 < comparer2) {
                 this->isExperssionTrue = true;
             }
-        } else if (this->op == ">") {
+        } else if (this->opEqualsTo(this->op, ">")) {
             if (comparer1 > comparer2) {
                 this->isExperssionTrue = true;
             }
-        } else if (this->op == "<=") {
+        } else if (this->opEqualsTo(this->op, "<=")) {
             if (comparer1 <= comparer2) {
                 this->isExperssionTrue = true;
             }
-        } else if (this->op == ">=") {
+        } else if (this->opEqualsTo(this->op, ">=")) {
             if (comparer1 >= comparer2) {
                 this->isExperssionTrue = true;
             }
-        } else if (this->op == "=") {
+        } else if (this->opEqualsTo(this->op, "=")) {
             if (this->component1->getValue() == this->component2->getValue()) {
                 this->isExperssionTrue = true;
             }
-        } else if (this->op == "!=") {
+        } else if (this->opEqualsTo(this->op, "!=")) {
             if (this->component1->getValue() != this->component2->getValue()) {
                 this->isExperssionTrue = true;
             }
@@ -89,4 +91,8 @@ bool IfArithmeticUiComponent::execute(const bool& shouldDraw, ColorComponent* co
 
 void IfArithmeticUiComponent::addIfComponent(IfArithmeticUiComponent* ifComponent) {
     this->ifComponents.append(ifComponent);
+}
+
+bool IfArithmeticUiComponent::opEqualsTo(const char*& firstOp, const char* secondOp) const {
+    return (firstOp == secondOp);
 }

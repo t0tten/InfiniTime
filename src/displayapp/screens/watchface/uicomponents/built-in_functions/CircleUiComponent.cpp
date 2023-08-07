@@ -2,11 +2,11 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-CircleUiComponent::CircleUiComponent(ArrayList<std::string>& values): BuiltInFunctionUiComponent(UiType::CIRCLE)
+CircleUiComponent::CircleUiComponent(ArrayList<const char*>& values): BuiltInFunctionUiComponent(UiType::CIRCLE)
 {
-    std::string x = values.get(0);
-    std::string y = values.get(1);
-    std::string radius = values.get(2);
+    const char* x = values.get(0);
+    const char* y = values.get(1);
+    const char* radius = values.get(2);
     this->init(new IntegerUiComponentType(x), new IntegerUiComponentType(y));
     this->radius = new IntegerUiComponentType(radius);
 }

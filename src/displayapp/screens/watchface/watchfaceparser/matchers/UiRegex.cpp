@@ -2,7 +2,7 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-UiRegex::UiRegex (const UiType::TYPE& type, std::string& prefixRegex, std::string& infixRegex,  std::string& suffixRegex) {
+UiRegex::UiRegex (const UiType::TYPE& type, char*& prefixRegex, char*& infixRegex,  char*& suffixRegex) {
     this->type = type;
     this->prefixRegex = prefixRegex;
     this->infixRegex = infixRegex;
@@ -15,18 +15,21 @@ UiType::TYPE UiRegex::getType() const {
     return this->type;
 }
 
-std::string UiRegex::getPrefixRegex() const {
+char* UiRegex::getPrefixRegex() const {
     return this->prefixRegex;
 }
 
-std::string UiRegex::getInfixRegex() const {
+char* UiRegex::getInfixRegex() const {
     return this->infixRegex;
 }
 
-std::string UiRegex::getSuffixRegex() const {
+char* UiRegex::getSuffixRegex() const {
     return this->suffixRegex;
 }
 
-std::string UiRegex::getCompleteRegex() const {
-    return this->prefixRegex + this->infixRegex + this->suffixRegex;
+char* UiRegex::getCompleteRegex() const {
+    CharManipulation* cm = new CharManipulation();
+    char* retVal = cm->concat(cm->concat(this->prefixRegex, this->infixRegex), this->suffixRegex);
+    delete cm;
+    return retVal;
 }

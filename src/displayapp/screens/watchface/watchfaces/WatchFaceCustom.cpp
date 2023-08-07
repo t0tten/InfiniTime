@@ -7,44 +7,44 @@ WatchFaceCustom::WatchFaceCustom() {
   this->root = new ArithmeticUiComponent();
 
   /* GRAPHICS */
-  ArrayList<std::string> values;
+  ArrayList<const char*> values;
   values.append("0");
   values.append("50");
   values.append("50");
   values.append("50");
   this->root->addCodeBlockComponent(new RectangleUiComponent(values));
 
-  std::string text = "test";
+  const char* text = "test";
   IfArithmeticUiComponent* ifComp = new IfArithmeticUiComponent(text);
   this->root->addCodeBlockComponent(ifComp);
 
-  ArrayList<std::string> values2;
+  ArrayList<const char*> values2;
   values2.append("50");
   values2.append("0");
   values2.append("50");
   values2.append("50");
   ifComp->addCodeBlockComponent(new RectangleUiComponent(values2));
 
-  ArrayList<std::string> color3;
+  ArrayList<const char*> color3;
   color3.append("159");
   color3.append("150");
   color3.append("150");
   this->root->addCodeBlockComponent(new ColorUiComponent(color3));
 
-  ArrayList<std::string> values3;
+  ArrayList<const char*> values3;
   values3.append("150");
   values3.append("150");
   values3.append("100");
   this->root->addCodeBlockComponent(new CircleUiComponent(values3));
 
-  ArrayList<std::string> values4;
+  ArrayList<const char*> values4;
   values4.append("50");
   values4.append("100");
   values4.append("400");
-  values4.append("{CLK} works");
+  values4.append("{CLK} works!");
   this->root->addCodeBlockComponent(new TextUiComponent(values4));
 
-  ArrayList<std::string> values5;
+  ArrayList<const char*> values5;
   values5.append("20");
   values5.append("130");
   values5.append("210");

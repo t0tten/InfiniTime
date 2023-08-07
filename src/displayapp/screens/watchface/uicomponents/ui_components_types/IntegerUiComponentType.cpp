@@ -2,12 +2,12 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-IntegerUiComponentType::IntegerUiComponentType(std::string& data): UiComponentType(UiType::INTEGER, data) {
+IntegerUiComponentType::IntegerUiComponentType(const char*& data): UiComponentType(UiType::INTEGER, data) {
     this->regex.append("{i}");
     this->regex.append("[0-9]+");
 }
 IntegerUiComponentType::~IntegerUiComponentType() {}
 
-std::string IntegerUiComponentType::getValue() const {
+const char* IntegerUiComponentType::getValue() const {
     return this->data;
 }

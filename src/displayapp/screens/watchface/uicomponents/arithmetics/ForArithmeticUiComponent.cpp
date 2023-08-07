@@ -2,7 +2,7 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-ForArithmeticUiComponent::ForArithmeticUiComponent(std::string& values): ArithmeticUiComponent(UiType::FOR) {
+ForArithmeticUiComponent::ForArithmeticUiComponent(const char*& values): ArithmeticUiComponent(UiType::FOR) {
     this->start = 1;
     this->end = 10;
     this->increment = 1;
@@ -39,6 +39,6 @@ int ForArithmeticUiComponent::getIndex() const {
     return this->index;
 }
 
-std::string ForArithmeticUiComponent::getIndexName() const {
+const char* ForArithmeticUiComponent::getIndexName() const {
     return this->indexName;
 }

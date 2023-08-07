@@ -2,14 +2,14 @@
 
 using namespace Pinetime::Applications::Screens::WatchFace;
 
-LineUiComponent::LineUiComponent(ArrayList<std::string>& values): BuiltInFunctionUiComponent(UiType::LINE)
+LineUiComponent::LineUiComponent(ArrayList<const char*>& values): BuiltInFunctionUiComponent(UiType::LINE)
 {
-    std::string x = values.get(0);
-    std::string y = values.get(1);
-    std::string xx = values.get(2);
-    std::string yy = values.get(3);
-    std::string thickness = values.get(4);
-    
+    const char* x = values.get(0);
+    const char* y = values.get(1);
+    const char* xx = values.get(2);
+    const char* yy = values.get(3);
+    const char* thickness = values.get(4);
+
     this->init(new IntegerUiComponentType(x), new IntegerUiComponentType(y));
     this->xx = new IntegerUiComponentType(xx);
     this->yy = new IntegerUiComponentType(yy);

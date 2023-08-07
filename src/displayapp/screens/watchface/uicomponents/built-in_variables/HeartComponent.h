@@ -1,7 +1,6 @@
 #pragma once
 
 #include "displayapp/screens/watchface/uicomponents/built-in_variables/VariableComponent.h"
-#include <string>
 
 namespace Pinetime {
   namespace Applications {
@@ -11,7 +10,7 @@ namespace Pinetime {
             public:
               HeartComponent(const UiType::TYPE& type);
               virtual ~HeartComponent();
-              virtual std::string getValue();
+              virtual const char* getValue();
           };
       }
     }

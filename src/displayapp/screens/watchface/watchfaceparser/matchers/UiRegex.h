@@ -1,7 +1,7 @@
 #pragma once
 
 #include "displayapp/screens/watchface/watchfaceparser/types/UiType.h"
-#include <string>
+#include "displayapp/screens/watchface/uicomponents/helpers/CharManipulation.h"
 
 namespace Pinetime {
   namespace Applications {
@@ -10,17 +10,19 @@ namespace Pinetime {
         class UiRegex {
         private:
             UiType::TYPE type;
-            std::string prefixRegex, infixRegex, suffixRegex;
+            char* prefixRegex;
+            char* infixRegex;
+            char* suffixRegex;
 
         public:
-            UiRegex(const UiType::TYPE& type, std::string& prefixRegex, std::string& infixRegex,  std::string& suffixRegex);
+            UiRegex(const UiType::TYPE& type, char*& prefixRegex, char*& infixRegex,  char*& suffixRegex);
             ~UiRegex();
 
             UiType::TYPE getType() const;
-            std::string getPrefixRegex() const;
-            std::string getInfixRegex() const;
-            std::string getSuffixRegex() const;
-            std::string getCompleteRegex() const;
+            char* getPrefixRegex() const;
+            char* getInfixRegex() const;
+            char* getSuffixRegex() const;
+            char* getCompleteRegex() const;
         };
       }
     }

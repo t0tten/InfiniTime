@@ -15,8 +15,11 @@ void BuiltInFunctionUiComponent::init(IntegerUiComponentType* x, IntegerUiCompon
 }
 
 void BuiltInFunctionUiComponent::setCoords(IntegerUiComponentType* x, IntegerUiComponentType* y) {
-    int ix = std::stoi(x->getValue());
-    int iy = std::stoi(y->getValue());
+    CharManipulation* cm = new CharManipulation();
+    int ix = cm->findInt(x->getValue());
+    int iy = cm->findInt(y->getValue());
+    delete cm;
+
     lv_obj_align(this->UIObject, lv_scr_act(), LV_ALIGN_IN_TOP_LEFT, ix, iy);
 }
 

@@ -4,7 +4,7 @@ using namespace Pinetime::Applications::Screens::WatchFace;
 
 BatteryComponent::BatteryComponent(const UiType::TYPE& type): VariableComponent(type) {}
 BatteryComponent::~BatteryComponent() {}
-std::string BatteryComponent::getValue() {
-    std::string batteryPercentage = "96";
+const char* BatteryComponent::getValue() {
+    const char* batteryPercentage = "96";
     return batteryPercentage;
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "displayapp/screens/watchface/uicomponents/built-in_variables/VariableComponent.h"
-#include <string>
+#include "displayapp/screens/watchface/uicomponents/helpers/CharManipulation.h"
 
 namespace Pinetime {
   namespace Applications {
@@ -11,16 +11,18 @@ namespace Pinetime {
             public:
               ClockComponent(const UiType::TYPE& type);
               virtual ~ClockComponent();
-              virtual std::string getValue();
+              virtual const char* getValue();
 
             private:
-              std::string hours, minutes, seconds;
+              const char* hours;
+              const char* minutes;
+              const char* seconds;
 
-              std::string getHours() const;
-              std::string getMinutes() const;
-              std::string getSeconds() const;
-              std::string getFullTime() const;
-              std::string getTime() const;
+              const char* getHours() const;
+              const char* getMinutes() const;
+              const char* getSeconds() const;
+              const char* getFullTime() const;
+              const char* getTime() const;
           };
       }
     }

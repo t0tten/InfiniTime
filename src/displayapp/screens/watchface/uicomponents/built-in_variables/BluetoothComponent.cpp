@@ -4,7 +4,7 @@ using namespace Pinetime::Applications::Screens::WatchFace;
 
 BluetoothComponent::BluetoothComponent(const UiType::TYPE& type): VariableComponent(type) {}
 BluetoothComponent::~BluetoothComponent() {}
-std::string BluetoothComponent::getValue() {
-    std::string isConnected = "true";
+const char* BluetoothComponent::getValue() {
+    const char* isConnected = "true";
     return isConnected;
 }

@@ -9,8 +9,8 @@ namespace Pinetime {
           class BooleanUiComponentType: public UiComponentType {
             public:
               virtual ~BooleanUiComponentType();
-              BooleanUiComponentType(std::string& data);
-              virtual std::string getValue() const;
+              BooleanUiComponentType(const char*& data);
+              virtual const char* getValue() const;
           };
       }
     }

@@ -13,7 +13,6 @@
 #include "displayapp/screens/Screen.h"
 #include <lvgl/src/lv_core/lv_obj.h>
 #include <lvgl/lvgl.h>
-#include <string>
 
 namespace Pinetime {
   namespace Applications {

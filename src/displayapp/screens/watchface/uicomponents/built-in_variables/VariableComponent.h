@@ -1,7 +1,6 @@
 #pragma once
 
 #include "displayapp/screens/watchface/watchfaceparser/types/UiType.h"
-#include <string>
 
 namespace Pinetime {
   namespace Applications {
@@ -11,7 +10,7 @@ namespace Pinetime {
             public:
               virtual ~VariableComponent();
               UiType::TYPE getType() const;
-              virtual std::string getValue() = 0;
+              virtual const char* getValue() = 0;
               
             protected:
               VariableComponent(const UiType::TYPE& type);

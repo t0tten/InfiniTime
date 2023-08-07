@@ -1,7 +1,6 @@
 #pragma once
 
 #include "displayapp/screens/watchface/uicomponents/arithmetics/ArithmeticUiComponent.h"
-#include <string>
 
 namespace Pinetime {
   namespace Applications {
@@ -9,17 +8,17 @@ namespace Pinetime {
       namespace WatchFace {
           class ForArithmeticUiComponent: public ArithmeticUiComponent {
             public:
-              ForArithmeticUiComponent(std::string& values);
+              ForArithmeticUiComponent(const char*& values);
               virtual ~ForArithmeticUiComponent();
 
               virtual bool execute(const bool& shouldDraw, ColorComponent* color, ArrayList<UiComponent*>& components);
               int getIndex() const;
-              std::string getIndexName() const;
+              const char* getIndexName() const;
 
             private:
               int start, end, increment;
               int index;
-              std::string indexName;
+              const char* indexName;
           };
       }
     }

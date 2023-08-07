@@ -2,7 +2,7 @@
 
 #include "displayapp/screens/watchface/uicomponents/built-in_functions/BuiltInFunctionUiComponent.h"
 #include "displayapp/screens/watchface/uicomponents/ui_components_types/StringUiComponentType.h"
-#include <string>
+#include "displayapp/screens/watchface/uicomponents/helpers/CharManipulation.h"
 
 namespace Pinetime {
   namespace Applications {
@@ -10,7 +10,7 @@ namespace Pinetime {
       namespace WatchFace {
           class TextUiComponent: public BuiltInFunctionUiComponent {
             public:
-              TextUiComponent(ArrayList<std::string>& values);
+              TextUiComponent(ArrayList<const char*>& values);
               virtual ~TextUiComponent();
 
               virtual void executeSelf(ArrayList<UiComponent*>& components);
